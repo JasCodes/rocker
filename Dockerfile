@@ -7,6 +7,7 @@ RUN apk add --no-cache --update ca-certificates wget tar go &&\
     tar -xvf rocker_linux_amd64.tar.gz --no-same-owner -C /usr/bin &&\
     chmod +x /usr/bin/rocker &&\
     rm rocker_linux_amd64.tar.gz &&\
+    export GOPATH=/go &&\
     go get github.com/tonistiigi/buildcache/cmd/buildcache &&\
     apk del --purge --rdepends --clean-protected ca-certificates wget tar go
 
